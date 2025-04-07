@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roobert&display=swap" rel="stylesheet">
+<!--http://localhost/SpecsNexus/src/student_dashboard.html-->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #345436;
+            max-height: 100vh;
+            overflow-y: hidden;
+        }
+
+        .ccc {
+            text-align: center;
+            border: 3px solid #878787;
+            border-radius: 35px;
+            width: 1200px;
+            height: 130px;
+            margin: 20px;
+        }
+
+        .bbb {
+            display: flex;
+            justify-content: center;
+        }
+
+        .eee {
+            font-size: 20px;
+            padding: 15px;
+            text-align: left;
+            border: 3px solid #ff5900;
+            border-radius: 35px;
+            width: 500px;
+            height: 270px;
+            margin: 5px;
+            color:#555555;
+        }
+
+        .eee2{
+            font-size: 20px;
+            padding: 15px;
+            text-align: left;
+            border: 3px solid #345436;
+            border-radius: 35px;
+            width: 700px;
+            height: 270px;
+            margin: 5px;
+            color:#555555;
+        }
+        .aaa {
+            text-align: center;
+            font-family: Poppins;
+            color: #ffff;
+            background-color: #345436;
+            border-radius: 10px;
+            width: 160px;
+            height: 27px;
+        }
+
+        .ann {
+            line-height: 27px;
+            text-align: center;
+            font-family: Poppins;
+            color: #ffff;
+            background-color: #345436;
+            border-radius: 10px;
+            width: 250px;
+            height: 27px;
+        }
+        .prof{
+            padding: 15px;
+            color:#434343;
+            background-color:#d9d9d9;
+            border: 3px;
+            border-radius: 35px;
+            width: 1000px;
+            height: 100px;
+            margin: 5px;
+
+        }
+
+        .membership {
+            font-family: Poppins;
+            font-size: 20px;
+            cursor: pointer;
+            transition-duration: 0.5s;
+            line-height: 65px;
+            text-align: center;
+            border: 2px solid #000000;
+            background-color: white;
+            border-radius: 25px;
+            width: 200px;
+            height: 70px;
+            margin: 10px;
+        }
+
+        .membership:hover {
+            background-color: #EB8B37; /* Change background color */
+            color: #000000; /* Change text color */
+            transform: scale(1.05); /* Slightly enlarge the button */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+        .membership1 {
+            font-family: Poppins;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease; /* Smooth transition */
+            line-height: 65px;
+            text-align: center;
+            border: 2px solid #000000;
+            background-color: #ffffff;
+            border-radius: 25px;
+            width: 200px;
+            height: 70px;
+            margin: 15px;
+        }
+
+        .membership1:hover {
+            background-color: #EB8B37; /* Change background color */
+            color: #000000; /* Change text color */
+            transform: scale(1.05); /* Slightly enlarge the button */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+        }
+
+        .mem2 {
+            display: flex;
+            justify-content: left;
+        }
+
+        .mem3 {
+            display: flex;
+            border: 2px solid #000000;
+            background-color: white;
+            border-radius: 25px;    
+            width: 1300px;
+            height: 500px;
+        }
+
+        .both2 {
+            display: flex;
+        }
+
+        table {
+            position: absolute;
+            left: auto;
+            border: 0px solid black;
+            position: static;
+            text-align: left;
+            padding: 5px;
+            font-size: 17px;
+            font-family: Poppins;
+        }
+
+        .both {
+            line-height: 30px;
+            text-align: center;
+            color: #ffff;
+            background-color: #345436;
+            border-radius: 10px;
+            width: 80px;
+            height: 30px;
+            margin: 15px;
+        }
+
+        .sidebar .pfp {
+            text-align: center;
+        }
+
+        .pfp {
+            height: 100px;
+        }
+
+        .pfp b {
+            color: white;
+        }
+
+        .sidebar b {
+            display: none;
+        }
+
+        .sidebar.on b {
+            display: contents;
+        }
+
+        .sidebar {
+            position: absolute;
+            max-height: 98vh;
+            height: 100%;
+            width: 80px;
+            background-color: #345436;
+            padding: 0.4rem 0.8rem;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            overflow: hidden;
+            font-family: Poppins;
+        }
+
+        ul {
+            padding-top: 80px;
+            font-size: 20px;
+        }
+
+        ul li span {
+            display: flex;
+        }
+
+        .sidebar.on {
+            width: 205px;
+        }
+
+        .sidebar.on #btn {
+            left: 90%;
+        }
+
+        .bold {
+            font-weight: 600;
+        }
+
+        .sidebar p {
+            opacity: 0;
+        }
+
+        .sidebar.on p {
+            opacity: 1;
+        }
+
+        .sidebar ul li {
+            list-style: none;
+            height: 50px;
+        }
+
+        ul li {
+            font-size: 2.8vh;
+            font-size: 1.3vw;
+            font-size: 80%;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 0.8rem;
+        }
+
+        .sidebar.on ul li a:hover {
+            background-color: #fff;
+            color: #345436;
+            width: 1000px;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #fff;
+            color: #345436;
+        }
+
+        .sidebar ul li a i {
+            min-width: 50px;
+            text-align: center;
+            height: 48px;
+            border-radius: 12px;
+            line-height: 50px;
+            font-size: 25px;
+        }
+
+        .sidebar .nav-item {
+            opacity: 0;
+        }
+
+        .sidebar.on .nav-item {
+            opacity: 1;
+        }
+
+        .inside-content {
+            margin: 10px 10px 10px 110px;
+            background-color: #fff;
+            height: 90vh;
+            border-radius: 50px;
+            padding-left: 20px;
+            padding: 20px;
+            overflow-y: hidden;
+        }
+
+        .sidebar.on + .inside-content {
+            margin-left: 230px;
+        }
+
+        .inside-content .inside-content1 {
+            display: none;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+            width: 100vw;
+        }
+
+        #dashboard-content {
+            overflow-y: scroll;
+            height: 560px;
+        }
+
+        #events-content {
+            overflow-y: scroll;
+            height: 560px;
+        }
+
+        .inside-content span {
+            font-family: Poppins;
+            font-weight: bold;
+            font-size: 32px;
+            color: #545454;
+        }
+
+        .adminpage-btn {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <i class="bx bx-menu" id="menubtn" style="color: #fff;"></i>
+
+            <div class="pfp">
+                <input type="file" style="width:80px; height: 80px; border-radius: 50%; border:1px solid black"> <br>
+                <b>Admin</b> <br>
+                <b>Aratea, Rosemarie B.</b> <br>
+                <b>202311709</b>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="#" id="dashboard-btn">
+                        <i class="bx bxs-dashboard"></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="profile-btn">
+                        <i class="bx bxs-user"></i>
+                        <span class="nav-item">Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="events-btn">
+                        <i class="bx bx-calendar"></i>
+                        <span class="nav-item">Events</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="announcement-btn">
+                        <i class="bx bx-podcast"></i>
+                        <span class="nav-item">Announcement</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="membership-btn">
+                        <i class="bx bxs-group"></i>
+                        <span class="nav-item">Membership</span>
+                    </a>
+                </li>
+    
+                <li class="logout">
+                    <a href="#" id="logout-btn">
+                        <i class="bx bxs-log-out"></i>
+                        <span class="nav-item">Log-out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="inside-content">
+                <div style="position:absolute; top: 20px; right: 60px; font-weight: bold; font-size: 1.2vw;">
+                    <p id="time"></p>
+                </div>
+                <div style="font-family: Poppins;">
+                <div id="dashboard-content" class="inside-content1" style="display: none;">
+                    <span>Dashboard</span>
+                    <div class="bbb">
+                        <div style="font-family: Poppins semibold; color:#555555">
+                        <div class="ccc"> About Us <br> The Society of Programming Enthusiasts in Computer Science (SPECS) is one of the three recognized organizations under the College of Computer Studies and the only organization under the Computer Science course. We aim to promote the skills, knowledge, and camaraderie among CS Students of Gordon College and establish leadership among the SPECS Officers and CS Students.</div>
+                    </div>
+                    </div>
+                    <div class="bbb">
+                        <div class="eee">Clearance</div>
+                        <div class="eee2">Membership Fee Status Description</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="profile-content" class="inside-content1" style="display: none;">
+                    <span>Profile</span><br>
+                    <div style="margin-top: 20px; font-family: Poppins;">
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <div class="prof" style="display: flex; align-items: center; padding: 15px; background-color: #d9d9d9; border-radius: 35px; width: 1000px;">
+                                <input type="file" style="width: 90px; height: 90px; border-radius: 50%; border: 1px solid black; margin-right: 20px;">
+                                <div>
+                                    <h3 style="margin: 0;">Aratea, Rosemarie B.</h3>
+                                    <p style="margin: 5px 0;">Student ID: 202311709</p>
+                                    <p style="margin: 5px 0;">Course: Computer Science</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <h4 style="margin-bottom: 10px;">Contact Information</h4>
+                            <p style="margin: 5px 0;">Email: rosemarie.aratea@example.com</p>
+                            <p style="margin: 5px 0;">Phone: +63 912 345 6789</p>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 10px;">About Me</h4>
+                            <p style="margin: 5px 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="events-content" class="inside-content1" style="display: none;">
+                    <span>Events</span>
+                    <div style="height: 10px;"></div>
+                    <button class="aaa" onclick="openAddEventPopup()">ADD NEW EVENTS</button>
+                    <div style="height: 10px;"></div>
+                    <input type="file" style="width:300px; height: 150px; border-radius: 5%; border:1px solid black">
+                    <div class="both2">
+                        <button class="both" onclick="openEditPopup()">Edit</button>
+                        <button class="both">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Add Event Popup -->
+                <div id="addEventPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #345436; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                <div style="color:#ffffff;">
+                    <h3 style="font-family: Poppins light;">Add New Event</h3>
+                    <label for="newEventName" style="font-family: Poppins light;">Event Name:</label>
+                    <input type="text" id="newEventName" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="newEventDescription" style="font-family: Poppins light;">Description:</label>
+                    <textarea id="newEventDescription" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                    <label for="newEventDate" style="font-family: Poppins light;">Date:</label>
+                    <input type="date" id="newEventDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="newEventTime" style="font-family: Poppins light;">Time:</label>
+                    <input type="time" id="newEventTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="newEventLocation" style="font-family: Poppins light;">Location:</label>
+                    <input type="text" id="newEventLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="newEventImage" style="font-family: Poppins light;">Upload Image:</label>
+                    <input type="file" id="newEventImage" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">  
+                </div> 
+                    <div style="display: flex; justify-content: space-between;">
+                        <button onclick="closeAddEventPopup()" style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Cancel</button>
+                        <button style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Save</button>
+                    </div>
+                </div>
+                <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeAllPopups()"></div>
+
+                <!-- Popup Modal -->
+                <div id="editPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #345436; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                <div style="color:#ffffff;">
+                    <h3 style="font-family: Poppins light;">Edit Event</h3>
+                    <label for="eventName" style="font-family: Poppins light;">Event Name:</label>
+                    <input type="text" id="eventName" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="eventDescription" style="font-family: Poppins light;">Description:</label>
+                    <textarea id="eventDescription" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                    <label for="eventDate" style="font-family: Poppins light;">Event Date:</label>
+                    <input type="date" id="eventDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="eventTime" style="font-family: Poppins light;">Event Time:</label>
+                    <input type="time" id="eventTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="eventLocation" style="font-family: Poppins light;">Location:</label>
+                    <input type="text" id="eventLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="eventImage" style="font-family: Poppins light;">Upload Image:</label>
+                    <input type="file" id="eventImage" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <button onclick="closeEditPopup()" style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Cancel</button>
+                        <button style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Save</button>
+                    </div>
+                </div>
+                <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeAllPopups()"></div>
+
+                <div id="announcement-content" class="inside-content1" style="display: none;">
+                    <span>Announcement</span>
+                    <div style="height: 10px;"></div>
+                    <button class="ann" onclick="openAddAnnouncementPopup()">ADD NEW ANNOUNCEMENT</button>
+                    <div style="height: 10px;"></div>
+                    <input type="file" style="width:300px; height: 150px; border-radius: 5%; border:1px solid black">
+                    <div class="both2">
+                        <button class="both" onclick="openEditAnnouncementPopup()">Edit</button>
+                        <button class="both">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Add Announcement Popup -->
+                <div id="addAnnouncementPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #345436; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                <div style="color:#ffffff; font-family: Poppins light;">
+                    <h3>Add New Announcement</h3>
+                    <label for="newAnnouncementTitle">Title:</label>
+                    <input type="text" id="newAnnouncementTitle" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="newAnnouncementContent">Description:</label>
+                    <textarea id="newAnnouncementContent" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                    <label for="newAnnouncementDate">Date:</label>
+                    <input type="date" id="newAnnouncementDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="newAnnouncementTime">Time:</label>
+                    <input type="time" id="newAnnouncementTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="newAnnouncementLocation">Location:</label>
+                    <input type="text" id="newAnnouncementLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="newAnnouncementImage">Upload Image:</label>
+                    <input type="file" id="newAnnouncementImage" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <button onclick="closeAddAnnouncementPopup()" style="padding: 10px 20px; background-color: #ffffff; color:#345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Cancel</button>
+                        <button style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Save</button>
+                    </div>
+                </div>
+
+                <!-- Edit Announcement Popup -->
+                <div id="editAnnouncementPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #345436; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                <div style="color:#fff; font-family: Poppins light;">
+                    <h3>Edit Announcement</h3>
+                    <label for="editAnnouncementTitle">Title:</label>
+                    <input type="text" id="editAnnouncementTitle" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="editAnnouncementContent">Description:</label>
+                    <textarea id="editAnnouncementContent" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                    <label for="eventDate" style="font-family: Poppins light;">Event Date:</label>
+                    <input type="date" id="eventDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="editAnnouncementTime">Time:</label>
+                    <input type="time" id="editAnnouncementTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="editAnnouncementLocation">Location:</label>
+                    <input type="text" id="editAnnouncementLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="editAnnouncementImage">Upload Image:</label>
+                    <input type="file" id="editAnnouncementImage" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                </div> 
+                    <div style="display: flex; justify-content: space-between;">
+                        <button onclick="closeEditAnnouncementPopup()" style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Cancel</button>
+                        <button style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Save</button>
+                    </div>
+                </div>
+
+                <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeAllPopups()"></div>
+
+                <div id="membership-content" class="inside-content1" style="display: none;">
+                    <span>Membership</span>
+                    <div class="mem2">
+                        <button class="membership"> MEMBERS</button>
+                        <button class="membership"> VERIFYING</button>
+                        <button class="membership"> APPROVED</button>
+                    </div>
+                    <div class="mem3 mem2">
+                        <div style="max-width: 1200px; margin: 0 auto; padding: 10px; font-family: Poppins, sans-serif;">
+                          <!-- Filter buttons -->
+                          <div class="mem2">
+                            <div style="display: flex; justify-content: space-evenly; margin-bottom: 20px;">
+                                <button class="membership1">Show All</button>
+                                <button class="membership1">1st Year</button>
+                                <button class="membership1">2nd Year</button>
+                                <button class="membership1">3rd Year</button>
+                                <button class="membership1">4th Year</button>
+                              </div>
+                          </div>
+                          
+                          <!-- Table of Membership, centered like the buttons -->
+                          <div style="display: flex; justify-content: center;">
+                            <table style="width:300%; height: 100%; border-collapse: collapse; border: none;">
+                              <thead>  
+                                <tr>
+                                    <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">NAME</th>
+                                    <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">BLOCK</th>
+                                    <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">YEAR</th>
+                                    <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">SEMESTER</th>
+                                    <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">STATUS</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr class="1stYear">
+                                    <td style="padding: 12px; text-align: center; border: none;">ysrtyhrt</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">1st Year</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  </tr>
+                                  <tr class="2ndYear">
+                                    <td style="padding: 12px; text-align: center; border: none;">Name2</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">2nd Year</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  </tr>
+                                  <tr class="3rdYear">
+                                    <td style="padding: 12px; text-align: center; border: none;">Name3</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">3rd Year</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  </tr>
+                                  <tr class="4thYear">
+                                    <td style="padding: 12px; text-align: center; border: none;">Name4</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>            
+                                    <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>          
+                                    <td style="padding: 12px; text-align: center; border: none;">4th Year</td>   
+                                </tr>    <!-- Add more rows as necessary -->       
+                            </tbody>  
+                        </table>
+                    </div>
+                </div>
+            </div>
+                      
+                  
+                </div>
+            </div><!-- font poppins-->
+        </div>
+    </div>
+
+    <script>
+        let menubtn = document.getElementById("menubtn");
+        let sidebar = document.querySelector('.sidebar');
+
+        menubtn.onclick = function() {
+            sidebar.classList.toggle('on');
+        }
+
+        function showContent(sectionId) {
+            let sections = document.querySelectorAll('.inside-content1');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        const ewan = document.getElementById("dashboard-content");
+        ewan.style.display = 'block';
+
+        document.getElementById('dashboard-btn').addEventListener('click', function() {
+            showContent('dashboard-content');
+        });
+
+        document.getElementById('profile-btn').addEventListener('click', function() {
+            showContent('profile-content');
+        });
+
+        document.getElementById('events-btn').addEventListener('click', function() {
+            showContent('events-content');
+        });
+
+        document.getElementById('announcement-btn').addEventListener('click', function() {
+            showContent('announcement-content');
+        });
+
+        document.getElementById('membership-btn').addEventListener('click', function() {
+            showContent('membership-content');
+        });
+
+
+        const time = document.getElementById('time');
+
+        function formatCurrentTime() {
+            const date = new Date();
+            const day = date.toLocaleString('en-US', { weekday: 'long' });
+            const month = date.toLocaleString('en-US', { month: 'short' });
+            const dayOfMonth = date.getDate();
+            const year = date.getFullYear();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            const ampm = hours >= 12 ? 'pm' : 'am';
+            const formattedTime = `${day} / ${month} ${dayOfMonth} / ${year} / ${hours % 12 || 12}:${minutes.toString().padStart(2, '0')}${ampm} / ${seconds} sec`;
+
+            return formattedTime;
+        }
+
+        setInterval(() => {
+            time.textContent = formatCurrentTime();
+        }, 1000);
+
+        function openEditPopup() {
+            document.getElementById('editPopup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        function closeEditPopup() {
+            document.getElementById('editPopup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        function openAddEventPopup() {
+            document.getElementById('addEventPopup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        function closeAddEventPopup() {
+            document.getElementById('addEventPopup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        function openAddAnnouncementPopup() {
+            document.getElementById('addAnnouncementPopup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        function closeAddAnnouncementPopup() {
+            document.getElementById('addAnnouncementPopup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        function openEditAnnouncementPopup() {
+            document.getElementById('editAnnouncementPopup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        function closeEditAnnouncementPopup() {
+            document.getElementById('editAnnouncementPopup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        function closeAllPopups() {
+            closeEditPopup();
+            closeAddEventPopup();
+            closeAddAnnouncementPopup();
+            closeEditAnnouncementPopup();
+        }
+    </script>
+</body>
+</html>
