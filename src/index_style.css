@@ -1,0 +1,241 @@
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Body Styling */
+body {
+    background-color: #345436;
+    max-height: 100vh;
+    overflow-y: hidden;
+    font-family: Poppins, sans-serif;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: absolute;
+    max-height: 98vh;
+    height: 100%;
+    width: 80px;
+    background-color: #345436;
+    padding: 0.4rem 0.8rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.sidebar.on {
+    width: 205px;
+}
+
+.sidebar .pfp {
+    text-align: center;
+    height: 100px;
+}
+
+.pfp b {
+    color: white;
+}
+
+.sidebar b {
+    display: none;
+}
+
+.sidebar.on b {
+    display: contents;
+}
+
+.sidebar ul {
+    padding-top: 80px;
+    font-size: 20px;
+}
+
+.sidebar ul li {
+    list-style: none;
+    height: 50px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: #fff;
+    color: #345436;
+}
+
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 48px;
+    border-radius: 12px;
+    line-height: 50px;
+    font-size: 25px;
+}
+
+.sidebar .nav-item {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.on .nav-item {
+    opacity: 1;
+}
+
+.logout {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    width: 100vw;
+}
+
+/* Inside Content Styling */
+.inside-content {
+    margin: 10px 10px 10px 110px;
+    background-color: #fff;
+    height: 90vh;
+    border-radius: 50px;
+    padding: 20px;
+    overflow-y: hidden;
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.on + .inside-content {
+    margin-left: 230px;
+}
+
+.inside-content .inside-content1 {
+    display: none;
+}
+
+.inside-content span {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 32px;
+    color: #545454;
+}
+
+/* Dashboard and Events Content */
+#dashboard-content,
+#events-content {
+    overflow-y: scroll;
+    height: 560px;
+}
+
+/* Membership Buttons */
+.membership,
+.membership1 {
+    font-family: Poppins;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 65px;
+    text-align: center;
+    border: 2px solid #000000;
+    background-color: white;
+    border-radius: 25px;
+    width: 200px;
+    height: 70px;
+    margin: 10px;
+}
+
+.membership:hover,
+.membership1:hover {
+    background-color: #EB8B37;
+    color: #000000;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Analytics and Content Boxes */
+.ccc {
+    text-align: center;
+    border: 3px solid #ff5900;
+    border-radius: 25px;
+    width: 900px;
+    height: 80px;
+    margin: 10px;
+}
+
+.bbb {
+    display: flex;
+    justify-content: center;
+}
+
+.analytics {
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid #ff5900;
+    border-radius: 25px;
+    width: 700px;
+    height: 300px;
+    margin: 10px;
+}
+
+/* Buttons */
+.aaa,
+.ann,
+.both {
+    font-family: Poppins;
+    text-align: center;
+    color: #fff;
+    background-color: #345436;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.aaa {
+    width: 160px;
+    height: 27px;
+}
+
+.ann {
+    width: 250px;
+    height: 27px;
+    line-height: 27px;
+}
+
+.both {
+    width: 80px;
+    height: 30px;
+    margin: 15px;
+    line-height: 30px;
+}
+
+
+
+/* Membership Table */
+table {
+    position: static;
+    text-align: left;
+    padding: 5px;
+    font-size: 17px;
+    font-family: Poppins;
+    border: 0;
+}
+
+.mem2 {
+    display: flex;
+    justify-content: left;
+}
+
+.mem3 {
+    display: flex;
+    border: 2px solid #000000;
+    background-color: white;
+    border-radius: 25px;
+    width: 1300px;
+    height: 500px;
+}
+
+.both2 {
+    display: flex;
+}
