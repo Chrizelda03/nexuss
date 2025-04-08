@@ -16,6 +16,13 @@
             "outputPath": "dist/specs-nexus",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "styles": [
+              "src/index_style.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "src/index_script.js"
+            ],
             "polyfills": [
               "zone.js"
             ],
@@ -25,11 +32,7 @@
                 "glob": "**/*",
                 "input": "public"
               }
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            ]
           },
           "configurations": {
             "production": {
