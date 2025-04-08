@@ -7,278 +7,252 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roobert&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="index-style.css">
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
+        /* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+}
 
-        body {
-            background-color: #345436;
-            max-height: 100vh;
-            overflow-y: hidden;
-        }
+/* Body Styling */
+body {
+    background-color: #345436;
+    max-height: 100vh;
+    overflow-y: hidden;
+    font-family: Poppins, sans-serif;
+}
 
-        .ccc {
-            text-align: center;
-            border: 3px solid #ff5900;
-            border-radius: 25px;
-            width: 900px;
-            height: 80px;
-            margin: 10px;
-        }
+/* Sidebar Styling */
+.sidebar {
+    position: absolute;
+    max-height: 98vh;
+    height: 100%;
+    width: 80px;
+    background-color: #345436;
+    padding: 0.4rem 0.8rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
 
-        .bbb {
-            display: flex;
-            justify-content: center;
-        }
+.sidebar.on {
+    width: 205px;
+}
 
-        .analytics {
-            font-size: 20px;
-            text-align: center;
-            border: 3px solid #ff5900;
-            border-radius: 25px;
-            width: 700px;
-            height: 300px;
-            margin: 10px;
-        }
+.sidebar .pfp {
+    text-align: center;
+    height: 100px;
+}
 
-        .aaa {
-            text-align: center;
-            font-family: Poppins;
-            color: #ffff;
-            background-color: #345436;
-            border-radius: 5px;
-            width: 160px;
-            height: 27px;
-        }
+.pfp b {
+    color: white;
+}
 
-        .ann {
-            line-height: 27px;
-            text-align: center;
-            font-family: Poppins;
-            color: #ffff;
-            background-color: #345436;
-            border-radius: 5px;
-            width: 250px;
-            height: 27px;
-        }
+.sidebar b {
+    display: none;
+}
 
-        .membership {
-            font-family: Poppins;
-            font-size: 20px;
-            cursor: pointer;
-            transition-duration: 0.5s;
-            line-height: 65px;
-            text-align: center;
-            border: 2px solid #000000;
-            background-color: white;
-            border-radius: 25px;
-            width: 200px;
-            height: 70px;
-            margin: 10px;
-        }
+.sidebar.on b {
+    display: contents;
+}
 
-        .membership:hover {
-            background-color: #EB8B37;
-        }
+.sidebar ul {
+    padding-top: 80px;
+    font-size: 20px;
+}
 
-        .mem2 {
-            display: flex;
-            justify-content: left;
-        }
+.sidebar ul li {
+    list-style: none;
+    height: 50px;
+}
 
-        .mem3 {
-            display: flex;
-            border: 2px solid #000000;
-            background-color: white;
-            border-radius: 25px;
-            width: 1300px;
-            height: 500px;
-        }
+.sidebar ul li a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        .both2 {
-            display: flex;
-        }
+.sidebar ul li a:hover {
+    background-color: #fff;
+    color: #345436;
+}
 
-        table {
-            position: absolute;
-            left: auto;
-            border: 0px solid black;
-            position: static;
-            text-align: left;
-            padding: 5px;
-            font-size: 17px;
-            font-family: Poppins;
-        }
+.sidebar ul li a i {
+    min-width: 50px;
+    text-align: center;
+    height: 48px;
+    border-radius: 12px;
+    line-height: 50px;
+    font-size: 25px;
+}
 
-        .both {
-            line-height: 30px;
-            text-align: center;
-            color: #ffff;
-            background-color: #345436;
-            border-radius: 10px;
-            width: 80px;
-            height: 30px;
-            margin: 15px;
-        }
+.sidebar .nav-item {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-        .sidebar .pfp {
-            text-align: center;
-        }
+.sidebar.on .nav-item {
+    opacity: 1;
+}
 
-        .pfp {
-            height: 100px;
-        }
+.logout {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    width: 100vw;
+}
 
-        .pfp b {
-            color: white;
-        }
+/* Inside Content Styling */
+.inside-content {
+    margin: 10px 10px 10px 110px;
+    background-color: #fff;
+    height: 90vh;
+    border-radius: 50px;
+    padding: 20px;
+    overflow-y: hidden;
+    transition: margin-left 0.3s ease;
+}
 
-        .sidebar b {
-            display: none;
-        }
+.sidebar.on + .inside-content {
+    margin-left: 230px;
+}
 
-        .sidebar.on b {
-            display: contents;
-        }
+.inside-content .inside-content1 {
+    display: none;
+}
 
-        .sidebar {
-            position: absolute;
-            max-height: 98vh;
-            height: 100%;
-            width: 80px;
-            background-color: #345436;
-            padding: 0.4rem 0.8rem;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            overflow: hidden;
-            font-family: Poppins;
-        }
+.inside-content span {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 32px;
+    color: #545454;
+}
 
-        ul {
-            padding-top: 80px;
-            font-size: 20px;
-        }
+/* Dashboard and Events Content */
+#dashboard-content,
+#events-content {
+    overflow-y: scroll;
+    height: 560px;
+}
 
-        ul li span {
-            display: flex;
-        }
+/* Membership Buttons */
+.membership,
+.membership1 {
+    font-family: Poppins;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 65px;
+    text-align: center;
+    border: 2px solid #000000;
+    background-color: white;
+    border-radius: 25px;
+    width: 200px;
+    height: 70px;
+    margin: 10px;
+}
 
-        .sidebar.on {
-            width: 205px;
-        }
+.membership:hover,
+.membership1:hover {
+    background-color: #EB8B37;
+    color: #000000;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-        .sidebar.on #btn {
-            left: 90%;
-        }
+/* Analytics and Content Boxes */
+.ccc {
+    text-align: center;
+    border: 3px solid #ff5900;
+    border-radius: 25px;
+    width: 900px;
+    height: 80px;
+    margin: 10px;
+}
 
-        .bold {
-            font-weight: 600;
-        }
+.bbb {
+    display: flex;
+    justify-content: center;
+}
 
-        .sidebar p {
-            opacity: 0;
-        }
+.analytics {
+    font-size: 20px;
+    text-align: center;
+    border: 3px solid #ff5900;
+    border-radius: 25px;
+    width: 700px;
+    height: 300px;
+    margin: 10px;
+}
 
-        .sidebar.on p {
-            opacity: 1;
-        }
+/* Buttons */
+.aaa,
+.ann,
+.both {
+    font-family: Poppins;
+    text-align: center;
+    color: #fff;
+    background-color: #345436;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-        .sidebar ul li {
-            list-style: none;
-            height: 50px;
-        }
+.aaa {
+    width: 160px;
+    height: 27px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-        ul li {
-            font-size: 2.8vh;
-            font-size: 1.3vw;
-            font-size: 80%;
-        }
+.ann {
+    width: 250px;
+    height: 27px;
+    line-height: 27px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-        .sidebar ul li a {
-            color: #fff;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            border-radius: 0.8rem;
-        }
+.both {
+    width: 80px;
+    height: 30px;
+    margin: 15px;
+    line-height: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-        .sidebar.on ul li a:hover {
-            background-color: #fff;
-            color: black;
-            width: 1000px;
-        }
 
-        .sidebar ul li a:hover {
-            background-color: #fff;
-            color: black;
-        }
 
-        .sidebar ul li a i {
-            min-width: 50px;
-            text-align: center;
-            height: 48px;
-            border-radius: 12px;
-            line-height: 50px;
-            font-size: 20px
-        }
+/* Membership Table */
+table {
+    position: static;
+    text-align: left;
+    padding: 5px;
+    font-size: 17px;
+    font-family: Poppins;
+    border: 0;
+}
 
-        .sidebar .nav-item {
-            opacity: 0;
-        }
+.mem2 {
+    display: flex;
+    justify-content: left;
+}
 
-        .sidebar.on .nav-item {
-            opacity: 1;
-        }
+.mem3 {
+    display: flex;
+    border: 2px solid #000000;
+    background-color: white;
+    border-radius: 25px;
+    width: 1300px;
+    height: 500px;
+}
 
-        .inside-content {
-            margin: 10px 10px 10px 110px;
-            background-color: #fff;
-            height: 90vh;
-            border-radius: 50px;
-            padding-left: 20px;
-            padding: 20px;
-            overflow-y: hidden;
-        }
-
-        .sidebar.on + .inside-content {
-            margin-left: 230px;
-        }
-
-        .inside-content .inside-content1 {
-            display: none;
-        }
-
-        .logout {
-            position: absolute;
-            bottom: 40px;
-            left: 60px;
-            width: 100vw;
-        }
-
-        #dashboard-content {
-            overflow-y: scroll;
-            height: 560px;
-        }
-
-        #events-content {
-            overflow-y: scroll;
-            height: 560px;
-        }
-
-        .inside-content span {
-            font-family: Poppins;
-            font-weight: bold;
-            font-size: 32px;
-            color: #545454;
-        }
-
-        .adminpage-btn {
-            cursor: pointer;
-        }
-
+.both2 {
+    display: flex;
+}
     </style>
 </head>
 <body>
@@ -335,10 +309,10 @@
                     <p id="time"></p>
                 </div>
                 <div style="font-family: Poppins;">
- <!--Dashboard-->   <div id="dashboard-content" class="inside-content1" style="display: none;">
+                <div id="dashboard-content" class="inside-content1" style="display: none;">
                     <span>Dashboard</span>
                     <div class="bbb">
-                        <div class="ccc"> TOTAL OF MEMBERS</div>
+                        <div class="ccc"> TOTAL OF PAID STUDENTS</div>
                         <div class="ccc"> TOTAL OF STUDENTS <br> 377 STUDENTS</div>
                         <div class="ccc"> TOTAL OF BLAHS</div>
                     </div>
@@ -353,151 +327,124 @@
                     </div>
                 </div>
 
-<!--events-->      <div id="events-content" class="inside-content1" style="display: none;">
+                <div id="events-content" class="inside-content1" style="display: none;">
                     <span>Events</span>
                     <div style="height: 10px;"></div>
-                        <button class="aaa" onclick="openAddEventPopup()">ADD NEW EVENTS</button>
+                    <button class="aaa" onclick="openEditPopup()">ADD NEW EVENTS</button>
                     <div style="height: 10px;"></div>
                     <input type="file" style="width:300px; height: 150px; border-radius: 5%; border:1px solid black">
                     <div class="both2">
-                        <button class="both" onclick="openEventEditPopup()">Edit</button>
+                        <button class="both" onclick="openEditPopup()">Edit</button>
                         <button class="both">Delete</button>
                     </div>
                 </div>
 
-<!-- Popup Modal for Adding New Events -->
-                <div id="addEventPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color:#345436; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
-                    <h3 style="font-family: Poppins; margin-bottom: 10px; color:#fff">Add New Event</h3>
-                    <label for="newEventTitle" style="font-family: Poppins regular; color: #fff;">Title:</label>
-                    <input type="text" id="newEventTitle" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="newEventLocation" style="font-family: Poppins regular; color: #fff;">Location:</label>
-                    <input type="text" id="newEventLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="newEventDate" style="font-family: Poppins regular; color: #fff;">Date:</label>
-                    <input type="date" id="newEventDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="newEventTime" style="font-family: Poppins regular; color: #fff;">Time:</label>
-                    <input type="time" id="newEventTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="newEventDescription" style="font-family: Poppins regular;color:#fff">Description:</label>
-                    <textarea id="newEventDescription" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
-                    
-                    <label for="newEventImage" style="font-family:Poppins regular; color: #fff;">Upload Image:</label>
-                    <input type="file" id="newEventImage" accept="image/*" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <div style="display: flex; justify-content: flex-end;">
-                        <button onclick="closeAddEventPopup()" style="margin-right: 10px; padding: 5px 10px; background-color: #fff; color: #345436; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
-                        <button style="padding: 5px 10px; background-color: #fff; color: #345436; border: none; border-radius: 5px; cursor: pointer;">Save</button>
+                <!-- Add Event Popup -->
+                <div id="addEventPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #345436; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                    <div style="color:#ffffff;">
+                        <h3 style="font-family: Poppins light;">Add New Event</h3>
+                        <label for="newEventName" style="font-family: Poppins light;">Event Name:</label>
+                        <input type="text" id="newEventName" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                        <label for="newEventDescription" style="font-family: Poppins light;">Description:</label>
+                        <textarea id="newEventDescription" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                        <label for="newEventDate" style="font-family: Poppins light;">Date:</label>
+                        <input type="date" id="newEventDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                        <label for="newEventTime" style="font-family: Poppins light;">Time:</label>
+                        <input type="time" id="newEventTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                        <label for="newEventLocation" style="font-family: Poppins light;">Location:</label>
+                        <input type="text" id="newEventLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                        <label for="newEventImage" style="font-family: Poppins light;">Upload Image:</label>
+                        <input type="file" id="newEventImage" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">  
+                    </div> 
+                        <div style="display: flex; justify-content: space-between;">
+                            <button onclick="closeAddEventPopup()" style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Cancel</button>
+                            <button style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Save</button>
+                        </div>
                     </div>
-                </div>
-
-<!-- Overlay for Add Event Popup -->
-                <div id="addEventPopupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeAddEventPopup()"></div>
-
-<!-- Popup Modal for Editing Events -->
-                <div id="eventEditPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color:#345436; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
-                    <h3 style="font-family: Poppins; margin-bottom: 10px; color:#fff">Edit Event</h3>
-                    <label for="eventTitle" style="font-family: Poppins regular; color: #fff;">Title:</label>
-                    <input type="text" id="eventTitle" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="eventLocation" style="font-family: Poppins regular; color: #fff;">Location:</label>
-                    <input type="text" id="eventLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="eventDate" style="font-family: Poppins regular; color: #fff;">Date:</label>
-                    <input type="date" id="eventDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="eventTime" style="font-family: Poppins regular; color: #fff;">Time:</label>
-                    <input type="time" id="eventTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="eventDescription" style="font-family: Poppins regular;color:#fff">Description:</label>
+                    <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeAllPopups()"></div>
+    
+                <!-- Popup Modal for Editing Events -->
+                <div id="editPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #345436; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                <div style="color:#fff; font-family: Poppins light;">
+                    <h3>Edit Event</h3>
+                    <label for="eventName">Event Name:</label>
+                    <input type="text" id="eventName" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="eventDescription">Description:</label>
                     <textarea id="eventDescription" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
-                    
-                    <label for="eventImage" style="font-family:Poppins regular; color: #fff;">Upload Image:</label>
-                    <input type="file" id="eventImage" accept="image/*" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <div style="display: flex; justify-content: flex-end;">
-                        <button onclick="closeEventEditPopup()" style="margin-right: 10px; padding: 5px 10px; background-color: #fff; color: #345436; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
-                        <button style="padding: 5px 10px; background-color: #fff; color: #345436; border: none; border-radius: 5px; cursor: pointer;">Save</button>
-                    </div>
-                </div>
+                    <label for="eventDate">Event Date:</label> 
+                    <input type="date" id="eventDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="eventTime">Event Time:</label>
+                    <input type="time" id="eventTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="eventLocation">Location:</label>
+                    <input type="text" id="eventLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="eventImage" >Upload Image:</label>
+                    <input type="file" id="eventImage" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                 </div>
+                <div style="display: flex; justify-content: space-between;">
+                <button onclick="closeEditPopup()" style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Cancel</button>
+                <button style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Save</button>
+            </div>
+        </div>
 
-<!-- Overlay for Event Edit Popup -->
-                <div id="eventPopupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeEventEditPopup()"></div>
-<!--Announcement--> <div id="announcement-content" class="inside-content1" style="display: none;">
+                <div id="announcement-content" class="inside-content1" style="display: none;">
                     <span>Announcement</span>
                     <div style="height: 10px;"></div>
-                    <button class="ann" onclick="openAddAnnouncementPopup()">ADD NEW ANNOUNCEMENT</button>
+                    <button class="ann" onclick="openAddAnnouncementPopup()"> ADD NEW ANNOUNCEMENT</button>
                     <div style="height: 10px;"></div>
                     <input type="file" style="width:300px; height: 150px; border-radius: 5%; border:1px solid black">
                     <div class="both2">
-                        <button class="both" onclick="openAnnouncementEditPopup()">Edit</button>
+                        <button class="both" onclick="openEditAnnouncementPopup()">Edit</button>
                         <button class="both">Delete</button>
                     </div>
                 </div>
-
-<!-- Popup Modal for Adding New Announcements -->
-                <div id="addAnnouncementPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color:#345436; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
-                    <h3 style="font-family: Poppins; margin-bottom: 10px; color:#fff">Add New Announcement</h3>
-                    <label for="newAnnouncementTitle" style="font-family: Poppins regular; color: #fff;">Title:</label>
+                <!-- Add Announcement Popup -->
+                <div id="addAnnouncementPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color:#345436; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                <div style="color: white; font-family: Poppins light;">
+                    <h3>Add New Announcement</h3>
+                    <label for="newAnnouncementTitle">Title:</label>
                     <input type="text" id="newAnnouncementTitle" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="newAnnouncementDate" style="font-family: Poppins regular; color: #fff;">Date:</label>
+                    <label for="newAnnouncementContent">Description:</label>
+                    <textarea id="newAnnouncementContent" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                    <label for="newAnnouncementDate">Date:</label>
                     <input type="date" id="newAnnouncementDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="newAnnouncementTime" style="font-family: Poppins regular; color: #fff;">Time:</label>
+                    <label for="newAnnouncementTime">Time:</label>
                     <input type="time" id="newAnnouncementTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="newAnnouncementLocation" style="font-family: Poppins regular; color: #fff;">Location:</label>
+                    <label for="newAnnouncementLocation">Location:</label>
                     <input type="text" id="newAnnouncementLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="newAnnouncementDescription" style="font-family: Poppins regular;color:#fff">Description:</label>
-                    <textarea id="newAnnouncementDescription" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
-                    
-                    <label for="newAnnouncementImage" style="font-family:Poppins regular; color: #fff;">Upload Image:</label>
-                    <input type="file" id="newAnnouncementImage" accept="image/*" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <div style="display: flex; justify-content: flex-end;">
-                        <button onclick="closeAddAnnouncementPopup()" style="margin-right: 10px; padding: 5px 10px; background-color: #fff; color: #345436; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
-                        <button style="padding: 5px 10px; background-color: #fff; color: #345436; border: none; border-radius: 5px; cursor: pointer;">Save</button>
-                    </div>
-                </div>
-
-<!-- Overlay for Add Announcement Popup -->
-                <div id="addAnnouncementPopupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeAddAnnouncementPopup()"></div>
-
-<!-- Popup Modal for Editing Announcements -->
-                <div id="announcementEditPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color:#345436; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
-                    <h3 style="font-family: Poppins; margin-bottom: 10px; color:#fff">Edit Announcement</h3>
-                    <label for="announcementTitle" style="font-family: Poppins regular; color: #fff;">Title:</label>
-                    <input type="text" id="announcementTitle" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="announcementLocation" style="font-family: Poppins regular; color: #fff;">Location:</label>
-                    <input type="text" id="announcementLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="announcementDate" style="font-family: Poppins regular; color: #fff;">Date:</label>
-                    <input type="date" id="announcementDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="announcementTime" style="font-family: Poppins regular; color: #fff;">Time:</label>
-                    <input type="time" id="announcementTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <label for="announcementDescription" style="font-family: Poppins regular;color:#fff">Description:</label>
-                    <textarea id="announcementDescription" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
-                    
-                    <label for="announcementImage" style="font-family:Poppins regular; color: #fff;">Upload Image:</label>
-                    <input type="file" id="announcementImage" accept="image/*" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                    
-                    <div style="display: flex; justify-content: flex-end;">
-                        <button onclick="closeAnnouncementEditPopup()" style="margin-right: 10px; padding: 5px 10px; background-color: #fff; color: #345436; border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
-                        <button style="padding: 5px 10px; background-color: #fff; color: #345436; border: none; border-radius: 5px; cursor: pointer;">Save</button>
-                    </div>
-                </div>
-
-<!-- Overlay for Announcement Edit Popup -->
-                <div id="announcementPopupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeAnnouncementEditPopup()"></div>
-
-                
-<!--membership-->  <div id="membership-content" class="inside-content1" style="display: none;">
+                    <label for="newAnnouncementImage">Upload Image:</label>
+                    <input type="file" id="newAnnouncementImage" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                </div> 
+                <div style="display: flex; justify-content: space-between;">
+                <button onclick="closeAddAnnouncementPopup()" style="padding: 10px 20px; background-color: white; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Cancel</button>
+                <button style="padding: 10px 20px; background-color: white; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Save</button>
+            </div>
+        </div>
+             <!-- Edit Announcement Popup -->
+                <div id="editAnnouncementPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #345436; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000;">
+                <div style="color: #ffffff; font-family: Poppins light;">
+                    <h3>Edit Announcement</h3>
+                    <label for="editAnnouncementTitle">Title:</label>
+                    <input type="text" id="editAnnouncementTitle" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="editAnnouncementContent">Description:</label>
+                    <textarea id="editAnnouncementContent" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                    <label for="editAnnouncementDate">Date:</label>
+                    <input type="date" id="editAnnouncementDate" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="editAnnouncementTime">Time:</label>
+                    <input type="time" id="editAnnouncementTime" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="editAnnouncementLocation">Location:</label>
+                    <input type="text" id="editAnnouncementLocation" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                    <label for="editAnnouncementImage">Upload Image:</label>
+                    <input type="file" id="editAnnouncementImage" style="width: 100%; margin-bottom: 10px; padding: 5px; border: 1px solid #ddd; border-radius: 5px;">
+        </div>
+                <div style="display: flex; justify-content: space-between;">
+                     <button onclick="closeEditAnnouncementPopup()" style="padding: 10px 20px; background-color: #ffffff; color: #345436; border: none; border-radius: 5px; cursor: pointer; font-family:Poppins;">Cancel</button>
+                    <button style="padding: 10px 20px; background-color: #ffffff; color:#345436; border: none; border-radius: 5px; cursor: pointer; font-family: Poppins;">Save</button>
+            </div>
+        </div>
+    
+        <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closeAllPopups()"></div>
+    
+                <div id="membership-content" class="inside-content1" style="display: none;">
                     <span>Membership</span>
                     <div class="mem2">
                         <button class="membership"> MEMBERS</button>
@@ -505,69 +452,59 @@
                         <button class="membership"> APPROVED</button>
                     </div>
                     <div class="mem3 mem2">
-                        <div style="max-width: 1200px; margin: 0 auto; padding: 20px; font-family: Poppins, sans-serif;">
+                        <div style="max-width: 1200px; margin: 0 auto; padding: 10px; font-family: Poppins, sans-serif;">
                           <!-- Filter buttons -->
                           <div class="mem2">
                             <div style="display: flex; justify-content: space-evenly; margin-bottom: 20px;">
-                              <button class="membership" onclick="filterContent('all')" style="font-size: 18px; cursor: pointer; transition-duration: 0.3s; padding: 10px 20px; background-color: #fff; border-radius: 25px; border: 2px solid #000; margin: 0 10px; text-align: ;">
-                                Show All
-                              </button>
-                              <button class="membership" onclick="filterContent('1stYear')" style="font-size: 18px; cursor: pointer; transition-duration: 0.3s; padding: 10px 20px; background-color: #fff; border-radius: 25px; border: 2px solid #000; margin: 0 10px; text-align: center;">
-                                1st Year
-                              </button>
-                              <button class="membership" onclick="filterContent('2ndYear')" style="font-size: 18px; cursor: pointer; transition-duration: 0.3s; padding: 10px 20px; background-color: #fff; border-radius: 25px; border: 2px solid #000; margin: 0 10px; text-align: center;">
-                                2nd Year
-                              </button>
-                              <button class="membership" onclick="filterContent('3rdYear')" style="font-size: 18px; cursor: pointer; transition-duration: 0.3s; padding: 10px 20px; background-color: #fff; border-radius: 25px; border: 2px solid #000; margin: 0 10px; text-align: center;">
-                                3rd Year
-                              </button>
-                              <button class="membership" onclick="filterContent('4thYear')" style="font-size: 18px; cursor: pointer; transition-duration: 0.3s; padding: 10px 20px; background-color: #fff; border-radius: 25px; border: 2px solid #000; margin: 0 10px; text-align: center;">
-                                4th Year
-                              </button>
+                              <button class="membership1">Show All</button>
+                              <button class="membership1">1st Year</button>
+                              <button class="membership1">2nd Year</button>
+                              <button class="membership1">3rd Year</button>
+                              <button class="membership1">4th Year</button>
                             </div>
                           </div>
                           
-<!-- Table of Membership, centered like the buttons -->
+                          <!-- Table of Membership, centered like the buttons -->
                           <div style="display: flex; justify-content: center;">
-                            <table style="width:300%; height: 100%; border-collapse: collapse;">
+                            <table style="width:300%; height: 100%; border-collapse: collapse; border: none;">
                               <thead>  
                                 <tr>
-                                  <th style="padding: 12px; text-align: center; border: 1px solid #ddd; background-color: #f4f4f4; font-weight: bold;">NAME</th>
-                                  <th style="padding: 12px; text-align: center; border: 1px solid #ddd; background-color: #f4f4f4; font-weight: bold;">BLOCK</th>
-                                  <th style="padding: 12px; text-align: center; border: 1px solid #ddd; background-color: #f4f4f4; font-weight: bold;">YEAR</th>
-                                  <th style="padding: 12px; text-align: center; border: 1px solid #ddd; background-color: #f4f4f4; font-weight: bold;">SEMESTER</th>
-                                  <th style="padding: 12px; text-align: center; border: 1px solid #ddd; background-color: #f4f4f4; font-weight: bold;">STATUS</th>
+                                  <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">NAME</th>
+                                  <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">BLOCK</th>
+                                  <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">YEAR</th>
+                                  <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">SEMESTER</th>
+                                  <th style="padding: 12px; text-align: center; border: none;  font-weight: bold;">STATUS</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr class="1stYear">
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;"></td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">1st Year</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">ysrtyhrt</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">1st Year</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
                                 </tr>
                                 <tr class="2ndYear">
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Name2</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">2nd Year</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Name2</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">2nd Year</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
                                 </tr>
                                 <tr class="3rdYear">
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Name3</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">3rd Year</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Name3</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">3rd Year</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
                                 </tr>
                                 <tr class="4thYear">
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Name4</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;">Not Applicable</td>            
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;\">Not Applicable</td>          
-                                  <td style="padding: 12px; text-align: center; border: 1px solid #ddd;\">4th Year</td>          
-                                </tr>    <!-- Add more rows as necessary -->       
+                                  <td style="padding: 12px; text-align: center; border: none;">Name4</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>            
+                                  <td style="padding: 12px; text-align: center; border: none;">Not Applicable</td>          
+                                  <td style="padding: 12px; text-align: center; border: none;">4th Year</td>          
+                                </tr>       
                             </tbody>  
                         </table>
                     </div>
@@ -587,7 +524,7 @@
         menubtn.onclick = function() {
             sidebar.classList.toggle('on');
         }
-
+        
         function showContent(sectionId) {
             let sections = document.querySelectorAll('.inside-content1');
             sections.forEach(section => {
@@ -641,44 +578,40 @@
             time.textContent = formatCurrentTime();
         }, 1000);
 
-        function openEventEditPopup() {
-            document.getElementById('eventEditPopup').style.display = 'block';
-            document.getElementById('eventPopupOverlay').style.display = 'block';
+        function openEditPopup() {
+            document.getElementById('editPopup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
         }
 
-        function closeEventEditPopup() {
-            document.getElementById('eventEditPopup').style.display = 'none';
-            document.getElementById('eventPopupOverlay').style.display = 'none';
-        }
-
-        function openAddEventPopup() {
-            document.getElementById('addEventPopup').style.display = 'block';
-            document.getElementById('addEventPopupOverlay').style.display = 'block';
-        }
-
-        function closeAddEventPopup() {
-            document.getElementById('addEventPopup').style.display = 'none';
-            document.getElementById('addEventPopupOverlay').style.display = 'none';
-        }
-
-        function openAnnouncementEditPopup() {
-            document.getElementById('announcementEditPopup').style.display = 'block';
-            document.getElementById('announcementPopupOverlay').style.display = 'block';
-        }
-
-        function closeAnnouncementEditPopup() {
-            document.getElementById('announcementEditPopup').style.display = 'none';
-            document.getElementById('announcementPopupOverlay').style.display = 'none';
+        function closeEditPopup() {
+            document.getElementById('editPopup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
         }
 
         function openAddAnnouncementPopup() {
             document.getElementById('addAnnouncementPopup').style.display = 'block';
-            document.getElementById('addAnnouncementPopupOverlay').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
         }
 
         function closeAddAnnouncementPopup() {
             document.getElementById('addAnnouncementPopup').style.display = 'none';
-            document.getElementById('addAnnouncementPopupOverlay').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        function openEditAnnouncementPopup() {
+            document.getElementById('editAnnouncementPopup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
+        }
+
+        function closeEditAnnouncementPopup() {
+            document.getElementById('editAnnouncementPopup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+
+        function closeAllPopups() { 
+            closeEditPopup();
+            closeAddAnnouncementPopup();
+            closeEditAnnouncementPopup();
         }
     </script>
 </body>
